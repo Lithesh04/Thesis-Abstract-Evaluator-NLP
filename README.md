@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 ## Run Flask Locally
 ```bash
-python app.py
+python flask_app.py
 ```
 
 Open `http://127.0.0.1:5000` in your browser.
@@ -60,12 +60,13 @@ Steps:
 4. After the first deploy finishes, open the Render URL for the live app.
 
 ## Deploy on Streamlit Cloud
-Use `streamlit_app.py` as the app entrypoint on Streamlit Cloud.
+Use `app.py` or `streamlit_app.py` as the app entrypoint on Streamlit Cloud.
 
 Important:
-- Do not use `app.py` as the Streamlit entry file because `app.py` is the Flask server.
+- `app.py` now points to the Streamlit UI, so existing Streamlit Cloud setups that still use `app.py` will work.
+- `flask_app.py` is the Flask server entry file.
 - Streamlit Cloud should install packages from `requirements.txt` automatically.
-- If you previously deployed `app.py`, change the app file to `streamlit_app.py` and redeploy.
+- If you previously deployed an older commit, redeploy from the latest `main` branch so Streamlit picks up the new entrypoint.
 
 ## Run Tests
 ```bash

@@ -1,7 +1,7 @@
 import unittest
 from io import BytesIO
 
-from app import app
+from flask_app import app
 
 
 class ThesisEvaluatorAppTests(unittest.TestCase):
