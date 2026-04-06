@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesis Abstract Evaluator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <p class="eyebrow">Academic Writing Assistant</p>
+            <h1>Evaluate, extract, and strengthen thesis abstracts</h1>
+            <p class="intro">
+                Paste an abstract or upload a PDF or DOCX file to generate rubric-based scoring,
+                chart-style category breakdowns, and targeted rewrite suggestions.
+            </p>
+        </section>
+
+        <section class="panel panel-stack">
+            <div>
+                <label for="abstract" class="label">Abstract text</label>
+                <textarea id="abstract" placeholder="Paste your thesis abstract here..."></textarea>
+            </div>
+
+            <div class="upload-box">
+                <label for="file-input" class="label">Or upload a document</label>
+                <input id="file-input" type="file" accept=".pdf,.docx">
+                <p class="hint">Supported formats: PDF and DOCX. The app will extract text and evaluate it automatically.</p>
+            </div>
+
+            <div class="actions">
+                <div class="button-row">
+                    <button id="evaluate-button" onclick="evaluateAbstract()">Evaluate Text</button>
+                    <button id="upload-button" class="secondary-button" onclick="evaluateFile()">Evaluate File</button>
+                </div>
+                <p class="hint">Recommended abstract length: 120 to 300 words.</p>
+            </div>
+        </section>
+
+        <section id="result" class="result hidden" aria-live="polite"></section>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
