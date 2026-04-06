@@ -66,6 +66,8 @@ Important:
 - `app.py` now points to the Streamlit UI, so existing Streamlit Cloud setups that still use `app.py` will work.
 - `flask_app.py` is the Flask server entry file.
 - Streamlit Cloud should install packages from `requirements.txt` automatically.
+- `gunicorn` is only installed on non-Windows environments because it is used for Linux-based production hosting, not local Windows runs.
+- This repo is pinned to Python `3.12.10` because the current Streamlit dependency set is more reliable there than on Python `3.13`.
 - If you previously deployed an older commit, redeploy from the latest `main` branch so Streamlit picks up the new entrypoint.
 
 ## Run Tests
