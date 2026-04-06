@@ -1,6 +1,6 @@
 # Thesis Abstract Evaluator
 
-Thesis Abstract Evaluator is a Flask web app that scores thesis abstracts using a rubric-based engine and a lightweight ML signal.
+Thesis Abstract Evaluator can run either as a Flask web app or as a Streamlit app. It scores thesis abstracts using a rubric-based engine and a lightweight ML signal.
 
 ## Features
 - Evaluate pasted abstract text (`/evaluate`)
@@ -33,12 +33,19 @@ Thesis Abstract Evaluator is a Flask web app that scores thesis abstracts using 
 pip install -r requirements.txt
 ```
 
-## Run
+## Run Flask Locally
 ```bash
 python app.py
 ```
 
 Open `http://127.0.0.1:5000` in your browser.
+
+## Run Streamlit Locally
+```bash
+streamlit run streamlit_app.py
+```
+
+Open the local Streamlit URL shown in the terminal.
 
 ## Deploy on Render
 This repository is now set up for Render with:
@@ -51,6 +58,14 @@ Steps:
 2. Open Render and create a new Blueprint deployment from that repository, or create a Web Service from the same repo.
 3. Render will install dependencies from `requirements.txt` and start the app with `gunicorn wsgi:app`.
 4. After the first deploy finishes, open the Render URL for the live app.
+
+## Deploy on Streamlit Cloud
+Use `streamlit_app.py` as the app entrypoint on Streamlit Cloud.
+
+Important:
+- Do not use `app.py` as the Streamlit entry file because `app.py` is the Flask server.
+- Streamlit Cloud should install packages from `requirements.txt` automatically.
+- If you previously deployed `app.py`, change the app file to `streamlit_app.py` and redeploy.
 
 ## Run Tests
 ```bash
